@@ -1,0 +1,154 @@
+/* ==========================================================================
+   Design tokens — London Chiropody Clinic, West Hampstead NW6 (+ Tottenham)
+   Palette: "ledger & ochre" — a mustard/ochre gold (the brass-plaque,
+   long-established-practice feel echoed by the real "EST." medallion on
+   the West Hampstead shopfront) paired with a near-black aubergine ink
+   (precision, hygiene, quiet competence) on a warm parchment-ledger paper.
+
+   Distinct from every other project in this consultancy's portfolio (hues
+   computed from hex, not eyeballed):
+   - No navy/indigo/cobalt/azure blue cluster (cobblers-and-keys ~214°,
+     nw3-chiropractic ~237°, igophysio ~214°, flc-french-language-centre
+     ~203°, wilhelminas-bakery secondary ~222°, mad-lillies near-black
+     ~255-260°).
+   - No teal/juniper/steel blue-green cluster (je-sports-therapy ~182°,
+     royal-fabrics ~179°, north-london-vet-clinic ~189°, beehive-brookland
+     secondary ~198°, osprey-clinic ~162°).
+   - No sage/bottle-green cluster (nw3-chiropractic secondary ~132°,
+     lamats-vintage ~153°, rowberry-restoration ~158°, je-sports-therapy
+     secondary ~152°, casa-dei-bambini-montessori ~96°).
+   - No citron/olive (igophysio secondary ~76°).
+   - No amethyst/violet (dental-perfection ~276°) or magenta/rose/wine
+     cluster (stitches-tailoring ~306°, royal-fabrics primary ~346°,
+     mad-lillies secondary ~350°, reichs-caterers ~338°, quigley-butchers
+     red ~0°).
+   - This build's primary — mustard/ochre gold at hue ~45° — sits in a
+     genuinely open gap: every other project's gold/brass/rust/terracotta
+     note (beehive-brookland ~39°, lamats-vintage secondary ~41°, reichs-
+     caterers/stitches-tailoring secondary ~39-40°, i-love-pilates ~15°,
+     wilhelminas-bakery ~15-18°, osprey-clinic secondary ~17-20°, cobblers-
+     and-keys secondary ~24°, north-london-vet secondary ~28°, beauty-
+     aesthetics gold ~31°, dental-perfection secondary ~34-36°) sits at
+     least 4-15° warmer/redder than this one, and none of them use gold as
+     the SOLE dominant brand hue the way this build does — here it carries
+     the whole identity against a near-neutral ink, closer in spirit to
+     michael-kendrick-architects' restrained "neutral + one hue" approach
+     than to any of the two-strong-hue builds.
+   - The ink is a near-black with a faint plum/aubergine undertone (hue
+     ~300°, but at 14-20% lightness it reads as charcoal-black, not as a
+     visible purple) — distinct from mad-lillies' blue-leaning near-black
+     (~255-260°) and from every other project's warm-brown or cool-blue
+     near-black ink.
+   - Slab-serif display face (system "Rockwell"/"Roboto Slab" stack) is
+     this build's unique typographic identity — sturdy and structural,
+     fitting a foot/postural-health practice — distinct from the Georgia/
+     Palatino antique-shop serif cluster (beehive-brookland, cobblers-and-
+     keys, dental-perfection, quigley-butchers, rowberry-restoration,
+     royal-fabrics, wilhelminas-bakery, lamats-vintage) and the Avenir/
+     Century-Gothic/Optima geometric-sans cluster (osprey-clinic, beauty-
+     aesthetics, igophysio, mad-lillies).
+
+   Contrast notes (computed against WCAG AA — 4.5:1 body text / 3:1 large
+   text & UI — via the relative-luminance formula, not eyeballed):
+   - --color-ink (#291E29) on --color-paper (#F7F4ED): 14.57:1 — safe
+     everywhere.
+   - --color-plum-deep (#422441) on paper: 12.25:1 — safe for headings/
+     links/small text.
+   - --color-gold-deep (#6F5415) on paper: 6.47:1 — safe for links, small
+     text, icons on light backgrounds.
+   - --color-gold (#A58627) on paper: 3.17:1 — DECORATIVE / LARGE-TEXT /
+     BUTTON-FILL (with ink text on top) ONLY, not for small text or body
+     copy on light backgrounds.
+   - --color-gold-light (#E3C86D) on --color-ink-deep (#181018): 11.32:1 —
+     safe for headings/body text on dark sections (footer, hero scrim).
+   - --color-plum-light (#B389B3) on --color-ink-deep: 6.35:1 — safe for
+     secondary text/links on dark sections.
+   ========================================================================== */
+
+:root {
+  /* ---- Colour: gold (primary) ---- */
+  --color-gold: #A58627;          /* primary — mustard/ochre. Decorative/large-text/button-fill (with ink text) only on light bg (3.17:1). */
+  --color-gold-hover: color-mix(in oklch, var(--color-gold) 82%, black);
+  --color-gold-deep: #6F5415;     /* text-safe darker gold — links, small text/icons on light backgrounds (6.47:1+) */
+  --color-gold-light: #E3C86D;    /* text-safe gold on dark ink-deep backgrounds (11.32:1) */
+  --color-gold-pale: #F5EEDB;     /* pale gold tint for chips/badges/backgrounds — not for text */
+
+  /* ---- Colour: plum-ink (secondary / dark neutral) ---- */
+  --color-plum: #644064;          /* secondary accent — muted aubergine, used sparingly (badges, hover states) */
+  --color-plum-deep: #422441;     /* text-safe plum — headings, links (12.25:1 on paper) */
+  --color-plum-light: #B389B3;    /* text-safe plum on dark ink-deep backgrounds (6.35:1) */
+  --color-plum-pale: #EEE3EC;     /* pale plum tint for chips/backgrounds — not for text */
+
+  /* ---- Colour: neutrals ---- */
+  --color-paper: #F7F4ED;         /* page background — warm parchment-ledger */
+  --color-paper-dim: #EEE8DD;     /* secondary panel background, card fills */
+  --color-surface: #FFFFFF;       /* card surface */
+  --color-ink: #291E29;           /* body text — near-black with faint aubergine undertone (14.57:1 on paper) */
+  --color-ink-deep: #181018;      /* darkest — footer, hero scrim, max-contrast dark sections */
+  --color-ink-soft: #5A4A57;      /* secondary text, captions (7.1:1 on paper) */
+  --color-line: #DBD4C7;          /* hairline borders/rules — decorative only */
+  --color-line-strong: #C9BEA8;
+  --color-white: #FFFFFF;
+
+  /* Computed hover-fill, derived live via color-mix rather than hand-picked */
+  --hover-fill-gold: color-mix(in oklch, var(--color-gold-deep) 80%, black);
+  --hover-fill-ink: color-mix(in oklch, var(--color-ink-deep) 82%, black);
+
+  /* Semantic aliases */
+  --color-bg: var(--color-paper);
+  --color-text: var(--color-ink);
+  --color-text-soft: var(--color-ink-soft);
+  --color-primary: var(--color-gold);
+  --color-accent: var(--color-plum);
+  --color-accent-2: var(--color-plum-deep);
+
+  /* ---- Typography ----
+     No CDN/webfont dependency (GitHub Pages, no build step): system-font
+     stacks only. A sturdy geometric slab serif for headings (structural,
+     dependable — fits a foot/postural-health practice) with a clean
+     humanist sans for body/UI. */
+  --font-display: Rockwell, "Rockwell Nova", "Roboto Slab", "Bookman Old Style", Georgia, serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --fs-h1: clamp(2.25rem, 3.6vw + 1rem, 3.8rem);
+  --fs-h2: clamp(1.75rem, 2.2vw + 1rem, 2.5rem);
+  --fs-h3: clamp(1.2rem, 1vw + 1rem, 1.45rem);
+  --fs-lead: clamp(1.08rem, 0.7vw + 0.9rem, 1.26rem);
+  --fs-body: 1.05rem;
+  --fs-small: 0.875rem;
+  --fs-eyebrow: 0.78rem;
+
+  --lh-tight: 1.16;
+  --lh-body: 1.65;
+
+  /* ---- Spacing scale ---- */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.25rem;
+  --space-5: 3.5rem;
+  --space-6: 5.5rem;
+  --space-7: 8rem;
+
+  /* ---- Layout ---- */
+  --container-width: 1180px;
+  --container-pad: clamp(1.25rem, 4vw, 3rem);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* ---- Shadows (warm ink-toned) ---- */
+  --shadow-card: 0 14px 32px -18px rgba(24, 16, 24, 0.3);
+  --shadow-card-hover: 0 22px 44px -16px rgba(24, 16, 24, 0.38);
+  --shadow-soft: 0 8px 20px -12px rgba(24, 16, 24, 0.22);
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-key: cubic-bezier(0.16, 0.84, 0.44, 1);
+  --dur-fast: 220ms;
+  --dur-med: 550ms;
+  --dur-slow: 1100ms;
+
+  /* Breakpoints (reference only, used in comments): 640 / 900 / 1200 */
+}
