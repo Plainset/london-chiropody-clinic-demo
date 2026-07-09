@@ -448,6 +448,19 @@ dialog#quick-contact::backdrop {
 .ar-portrait { aspect-ratio: 3 / 4; }
 .ar-wide { aspect-ratio: 21 / 9; }
 .ar-banner { aspect-ratio: 2.4 / 1; }
+.ar-classic { aspect-ratio: 3 / 2; }
+
+/* Hover-lift wrapper pattern for .photo-frame figures: hover the stable
+   .lift wrapper, animate the child .lift__thumb image only — never
+   :hover + transform on the same element (see .lift/.lift__thumb above). */
+.photo-frame.lift .lift__thumb { display: block; width: 100%; height: 100%; }
+
+/* ---- Treatment-photo gallery (homepage + services) ---- */
+.care-gallery { display: grid; gap: var(--space-3); grid-template-columns: 1fr; }
+@media (min-width: 700px) {
+  .care-gallery { grid-template-columns: 1fr 1fr; }
+  .care-gallery__wide { grid-column: 1 / -1; }
+}
 
 /* ==========================================================================
    Footer
