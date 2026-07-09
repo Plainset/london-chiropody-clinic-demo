@@ -283,6 +283,7 @@ button { font: inherit; }
   }
 }
 .card {
+  min-width: 0;
   background: var(--color-surface); border: 1px solid var(--color-line);
   border-radius: var(--radius-md); padding: var(--space-3);
   box-shadow: var(--shadow-soft);
@@ -296,6 +297,11 @@ button { font: inherit; }
 .card h3 { margin-bottom: 0.4rem; }
 .card p { color: var(--color-ink-soft); margin-bottom: 0; font-size: 0.95rem; }
 .card__footer { align-self: end; padding-top: var(--space-2); }
+/* Grid items default to min-width:auto, so an unbroken long string (an
+   email address, a URL) inside a card can force the track wider than its
+   content box and spill past the card's border. Belt-and-braces: any long
+   inline link/text sitting directly in a card wraps inside the box. */
+.card a, .card-row a { overflow-wrap: anywhere; word-break: break-word; }
 
 /* Hover-lift wrapper pattern: hover a stable wrapper, animate a child */
 .lift { display: block; }
@@ -434,6 +440,7 @@ dialog#quick-contact::backdrop {
   padding: 0.8rem 1rem; border-radius: var(--radius-sm);
   background: var(--color-paper-dim); color: var(--color-ink); text-decoration: none;
   font-weight: 700; transition: background var(--dur-fast);
+  min-width: 0; overflow-wrap: anywhere; word-break: break-word;
 }
 .quick-contact__list a:hover { background: var(--color-gold-pale); }
 
